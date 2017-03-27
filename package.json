@@ -1,13 +1,19 @@
 {
-  "name": "event-loop-stats",
-  "version": "1.0.0",
+  "name": "@risingstack/event-loop-stats",
+  "version": "1.0.1",
   "description": "Exposes stats about the libuv default loop",
   "main": "src/eventLoopStats.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/bripkens/event-loop-stats.git"
+    "url": "https://github.com/RisingStack/event-loop-stats.git"
   },
   "author": "Ben Ripkens <bripkens.dev@gmail.com>",
+  "contributors": [
+    {
+      "name": "David Szakallas",
+      "email": "david.szakallas@risingstack.com"
+    }
+  ],
   "license": "MIT",
   "keywords": [
     "libuv",
@@ -16,16 +22,27 @@
     "loop"
   ],
   "scripts": {
-    "install": "node-gyp rebuild",
-    "rebuild": "node-gyp rebuild",
+    "install": "node-pre-gyp install --fallback-to-build",
+    "rebuild": "node-pre-gyp rebuild",
     "test": "mocha"
   },
   "dependencies": {
-    "nan": "^2.0.5"
+    "nan": "^2.0.5",
+    "node-pre-gyp": "^0.6.34"
   },
-  "gypfile": true,
+  "bundledDependencies": [
+    "node-pre-gyp"
+  ],
   "devDependencies": {
+    "aws-sdk": "^2.0.0",
     "chai": "3.3.0",
     "mocha": "2.3.3"
+  },
+  "binary": {
+    "module_name": "event-loop-stats",
+    "module_path": "./build/@risingstack/{module_name}/v{version}/{node_abi}-{platform}-{arch}/",
+    "remote_path": "repo/v1/@risingstack/{module_name}/dist/v{version}/",
+    "package_name": "{node_abi}-{platform}-{arch}.tar.gz",
+    "host": "https://oss.risingstack.com/"
   }
 }
