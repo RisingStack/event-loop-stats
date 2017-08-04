@@ -22,17 +22,15 @@
     "loop"
   ],
   "scripts": {
+    "preinstall": "node -e 'process.exit(0)'",
     "install": "node-pre-gyp install --fallback-to-build",
     "rebuild": "node-pre-gyp rebuild",
     "test": "mocha"
   },
   "dependencies": {
     "nan": "^2.0.5",
-    "node-pre-gyp": "^0.6.34"
+    "@risingstack/node-pre-gyp": "^0.6.35"
   },
-  "bundledDependencies": [
-    "node-pre-gyp"
-  ],
   "devDependencies": {
     "aws-sdk": "^2.0.0",
     "chai": "3.3.0",
