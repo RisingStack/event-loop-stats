@@ -1,6 +1,6 @@
 {
   "name": "@risingstack/event-loop-stats",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Exposes stats about the libuv default loop",
   "main": "src/eventLoopStats.js",
   "repository": {
